@@ -1,0 +1,69 @@
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    margin: 20px;
+
+    padding: 20px;
+
+}
+
+
+
+.notification {
+
+    background-color: #f2f2f2;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+
+
+h1 {
+
+    color: #007bff;
+
+}
+
+
+
+p {
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.button {
+
+    background-color: #007bff;
+
+    color: #fff;
+
+    padding: 10px 20px;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+}
+
+.bgcol
+{
+
+    background-image: url('src/assets/img/customers5.jpg'); /* Replace 'background.jpg' with your image file path */
+
+    background-size:cover; /* This ensures the image covers the whole background */
+
+    background-repeat:repeat-x; /* Prevent the image from repeating */
+
+    background-attachment:fixed; /* Fixed background when scrolling */
+
+}

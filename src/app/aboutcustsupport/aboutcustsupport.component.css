@@ -1,0 +1,12 @@
+.bgcol
+{
+
+    background-image: url('src/assets/img/about1.jpg'); /* Replace 'background.jpg' with your image file path */
+
+    background-size: cover; /* This ensures the image covers the whole background */
+
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+
+    background-attachment: fixed; /* Fixed background when scrolling */
+
+}

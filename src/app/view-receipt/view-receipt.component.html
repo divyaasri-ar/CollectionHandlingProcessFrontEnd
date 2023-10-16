@@ -1,0 +1,70 @@
+<div id="outer">
+    <header class="header order-last" id="tm-header">
+        <nav class="navbar">
+            <div class="collapse navbar-collapse single-page-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/customer/home"><span class="icn"><i class="fas fa-2x fa-home"></i></span> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/aboutcust"><span class="icn"><i class="fas fa-2x fa-info-circle"></i></span> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/paymentportal"><span class="icn"><i class="fas fa-2x fa-user-lock"></i></span> Payment Portal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/viewbill"><span class="icn"><i class="fas fa-2x fa-user-lock"></i></span> View Bill</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" routerLink="/customersupportlogin"><span class="icn"><i class="fas fa-2x fa-headset"></i></span> Customer Support Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/customerlogin"><span class="icn"><i class="fas fa-2x fa-user"></i></span> Customer Login</a>
+                    </li> -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <button class="navbar-button collapsed" type="button">
+        <span class="menu_icon">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </span>
+    </button>
+
+    <main id="content-box" class="order-first">
+        <!-- <div class="customer-list">
+            <h2>Customer List</h2>
+            <ul>
+              <li *ngFor="let customer of customersList">
+                {{ customer.id }} - {{ customer.email }}
+              </li>
+            </ul>
+          </div> -->
+          <div class="banner-section section bgcol" >
+            <div class="container">
+                <div class="item">
+
+          <!-- <div *ngIf="customerDetails">
+            <h2>Customer Details</h2>
+            <p>ID: {{ customerDetails.id }}</p>
+            <p>Email: {{ customerDetails.email }}</p>
+          </div> -->
+
+          <div *ngIf="customerDetails" class="receipt-box">
+            <h2>Customer Details</h2>
+            <p>ID: {{ customerDetails.id }}</p>
+            <p>Name: {{ customerDetails.name }}</p>
+            <p>Email: {{ customerDetails.email }}</p>
+            <p>Mobile: {{ customerDetails.mobile }}</p>
+            <p>Outstanding Bill: {{ customerDetails.outbill | currency:'INR':'symbol':'1.2-2' }}</p>
+            <p>Due Date: {{ customerDetails.duedate | date:'shortDate' }}</p>
+            <button class="pay-button" (click)="goToPaymentPage()">Pay Bill</button>
+        </div>
+</div>
+</div>
+</div>
+</main>
+</div>

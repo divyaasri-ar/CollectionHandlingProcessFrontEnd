@@ -1,0 +1,88 @@
+.bgcol
+{
+
+    background-image: url('src/assets/img/home4.jpg'); /* Replace 'background.jpg' with your image file path */
+
+    background-size: contain; /* This ensures the image covers the whole background */
+
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+
+    background-attachment: fixed; /* Fixed background when scrolling */
+
+}
+.table-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+    
+
+  }
+
+  table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+    background-color: #1e3c72;
+    color: white;
+    /* background-color:white;
+    color: black; */
+
+  }
+
+  th, td {
+
+    border: 1px solid #0e2551;
+
+    padding: 8px;
+
+    text-align: left;
+
+  }
+  /* tr {
+
+    border: 1px solid #1e3c72;
+
+    padding: 8px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+    text-align: left;
+
+  } */
+
+  :root {
+    --primary-color: white;
+    --secondary-color: rgb(61, 68, 73);
+    --highlight-color: #3282b8;
+  
+    --dt-status-available-color: greenyellow;
+    --dt-status-away-color: lightsalmon;
+    --dt-status-offline-color: lightgray;
+  
+    --dt-padding: 12px;
+    --dt-padding-s: 6px;
+    --dt-padding-xs: 2px;
+  
+    --dt-border-radius: 3px;
+  
+    --dt-background-color-container: #2a3338;
+    --dt-border-color: var(--secondary-color);
+    --dt-bg-color: var(--highlight-color);
+    --dt-text-color: var(--primary-color);
+    --dt-bg-active-button: var(--highlight-color);
+    --dt-text-color-button: var(--primary-color);
+    --dt-text-color-active-button: var(--primary-color);
+    --dt-hover-cell-color: var(--highlight-color);
+    --dt-even-row-color: var(--secondary-color);
+    --dt-focus-color: var(--highlight-color);
+    --dt-input-background-color: var(--secondary-color);
+    --dt-input-color: var(--primary-color);
+  }
+  
+  .material-icons {
+    font-size: 16px;
+  }
+  
+  

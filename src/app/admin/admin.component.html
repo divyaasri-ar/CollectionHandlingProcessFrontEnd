@@ -1,0 +1,147 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Login From</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- <link rel="stylesheet" href="login.css" /> -->
+  </head>
+  <div id="outer">
+    <header class="header order-last" id="tm-header">
+        <nav class="navbar">
+            <div class="collapse navbar-collapse single-page-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/home"><span class="icn"><i class="fas fa-2x fa-home"></i></span> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/about"><span class="icn"><i class="fas fa-2x fa-info-circle"></i></span> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/adminlogin"><span class="icn"><i class="fas fa-2x fa-user-lock"></i></span> Admin Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/customersupportlogin"><span class="icn"><i class="fas fa-2x fa-headset"></i></span> Customer Support Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/customerlogin"><span class="icn"><i class="fas fa-2x fa-user"></i></span> Customer Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <button class="navbar-button collapsed" type="button">
+        <span class="menu_icon">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </span>
+    </button>
+    
+    <main id="content-box" class="order-first">
+        <div class="banner-section section bgcol">
+            <!DOCTYPE html>
+
+  <body>
+    <div class="topnav" >
+
+      <span style="display: flex; align-items: center;"><br><br>
+    
+        <i class="fas fa-2x fa-file-invoice-dollar"></i>
+    
+        <h3 style="margin-left: 10px; margin-top: 0;">Simply Invoice</h3>
+        </span>
+    
+    <div class="login_form_container">
+       
+      <div class="login_form">
+        <h2>Admin Login</h2>
+        <form>
+        <div class="input_group">
+          <i class="fa fa-user"></i>
+          <input id="email" name="email" [(ngModel)]="email" type="email" placeholder="Email / Username" class="input_text"
+          autocomplete="off" required/>
+        </div>
+        <div class="input_group">
+          <i class="fa fa-unlock-alt"></i>
+        
+          <input id="password" name="password" [(ngModel)]="password" type="password" placeholder="Password" class="input_text"
+          autocomplete="off" required/>
+        </div>
+        <div class="button_group" id="login_button" (click)="loginUser()">
+          <a>Submit</a>
+        </div>
+        <div *ngIf="loginSuccessMessage" class="success-message">
+            {{ loginSuccessMessage }}
+          </div>
+          
+          <div *ngIf="loginErrorMessage" class="error-message" style="color: red;">
+            {{ loginErrorMessage }}
+          </div>
+        </form>
+          </div>
+          
+          </div>
+      
+        <!-- <div class="fotter">
+          <a>Forgot Password ?</a>
+          <a>SingUp</a>
+        </div> -->
+    
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- <script src="login.js"></script> -->
+    </div>
+     </body>
+     </div>
+     </main>
+     </div>
+     </html>
+    
+
+        <!-- <div class="gallery-section section parallax-window" > -->
+            <!-- <div class="container">
+                <div class="topnav" >
+
+                    <span style="display: flex; align-items: center;"><br><br>
+                  
+                      <i class="fas fa-2x fa-file-invoice-dollar"></i>
+                  
+                      <h3 style="margin-left: 10px; margin-top: 0; ">Simply Invoice</h3>
+                  
+                    </span>
+                <div id="bg"></div>
+                <div class="title text-right">
+                    <h2 style="color: #1e3c72;">Admin Login</h2>
+                </div>
+
+                <form>
+                    <div class="form-field">
+                      <input id="email" name="email" [(ngModel)]="email" type="email" placeholder="Email / Username" required/>
+                    </div>
+                    
+                    <div class="form-field">
+                      <input id="password" name="password" [(ngModel)]="password" type="password" placeholder="Password" required/>                         </div>
+                    
+                    <div class="form-field">
+                      <button class="btn" (click)="loginUser()">Log in</button>
+                    </div> -->
+                    <!-- <div *ngIf="loginSuccessMessage" class="success-message">
+                        {{ loginSuccessMessage }}
+                      </div>
+                      
+                      <div *ngIf="loginErrorMessage" class="error-message" style="color: red;">
+                        {{ loginErrorMessage }}
+                      </div>
+                  </form> -->
+            
+    
+    
+
+    

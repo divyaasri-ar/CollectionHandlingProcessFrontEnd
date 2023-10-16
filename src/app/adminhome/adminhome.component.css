@@ -1,0 +1,53 @@
+.bgcol
+{
+
+    background-image: url('src/assets/img/home6.jpg'); /* Replace 'background.jpg' with your image file path */
+
+    background-size: contain; /* This ensures the image covers the whole background */
+
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+
+    background-attachment: fixed; /* Fixed background when scrolling */
+
+}
+
+.vertical-menu-centered a {
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @media screen and (max-width: 600px) {
+    .topnav a, .topnav-right {
+      float: none;
+      display: block;
+    }
+    
+    .topnav-centered a {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+    }
+  }
+  .vertical-menu {
+    width: 200px;
+  }
+  
+  .vertical-menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+  
+  .vertical-menu a:hover {
+    background-color: #ccc;
+  }
+  
+  .vertical-menu a.active {
+    background-color: #04AA6D;
+    color: white;
+  }  

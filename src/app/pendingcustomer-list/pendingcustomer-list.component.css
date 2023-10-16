@@ -1,0 +1,42 @@
+.bgcol
+{
+
+    background-image: url('src/assets/img/home4.jpg'); /* Replace 'background.jpg' with your image file path */
+
+    background-size: contain; /* This ensures the image covers the whole background */
+
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+
+    background-attachment: fixed; /* Fixed background when scrolling */
+
+}
+.table-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+    
+
+  }
+
+  table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+    background-color: #1e3c72;
+    color: white;
+    /* background-color:white;
+    color: black; */
+
+  }
+
+  th, td {
+
+    border: 1px solid #0e2551;
+
+    padding: 8px;
+
+    text-align: left;
+
+  }

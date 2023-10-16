@@ -1,0 +1,305 @@
+<div id="outer">
+    <header class="header order-last" id="tm-header">
+        <nav class="navbar">
+            <div class="collapse navbar-collapse single-page-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/customer/home"><span class="icn"><i class="fas fa-2x fa-home"></i></span> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/aboutcust"><span class="icn"><i class="fas fa-2x fa-info-circle"></i></span> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/paymentportal"><span class="icn"><i class="fas fa-2x fa-user-lock"></i></span> Payment Portal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/viewbill"><span class="icn"><i class="fas fa-2x fa-user-lock"></i></span> View Bill</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" routerLink="/customersupportlogin"><span class="icn"><i class="fas fa-2x fa-headset"></i></span> Customer Support Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/customerlogin"><span class="icn"><i class="fas fa-2x fa-user"></i></span> Customer Login</a>
+                    </li> -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <button class="navbar-button collapsed" type="button">
+        <span class="menu_icon">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </span>
+    </button>
+
+    <main id="content-box" class="order-first">
+        <!-- <div class="customer-list">
+            <h2>Customer List</h2>
+            <ul>
+              <li *ngFor="let customer of customersList">
+                {{ customer.id }} - {{ customer.email }}
+              </li>
+            </ul>
+          </div> -->
+          <div class="banner-section section bgcol" >
+            <div class="container">
+               
+                <div class="item">
+                   
+                    
+<!-- 
+          <div *ngIf="customerDetails">
+            <h2>Customer Details</h2>
+            <p>ID: {{ customerDetails.id }}</p>
+            <p>Email: {{ customerDetails.email }}</p>
+          </div> -->
+
+        <div class="payment-portal">
+           
+            
+            <!-- <h2>Payment Portal</h2>
+          
+            <div *ngIf="outstandingBill !== undefined">
+              <p>Outstanding Bill: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</p>
+            </div> -->
+
+            
+
+        <!-- <div class="banner-section section bgcol" > -->
+            
+            <div class="payment-container">
+                
+                <h2>Select Payment Method</h2>
+        
+                <div class="payment-method">
+        
+                    Selected Payment Method Symbol: <span [innerHTML]="getPaymentSymbol()"></span>
+        
+                </div>
+
+                
+
+        <form (ngSubmit)="processPayment()">
+
+            <label for="payment-method">Payment Method:</label>
+
+            <select id="payment-method" [(ngModel)]="selectedPaymentMethod" name="paymentMethod" required>
+
+                <option value="">Select Payment Method</option>
+
+                <option value="credit-card">Credit Card</option>
+
+                <option value="debit-card">Debit Card</option>
+
+                <option value="account-transfer">Account Transfer</option>
+
+                <option value="upi">UPI (Google Pay, Paytm, etc.)</option>
+
+            </select>
+
+ 
+
+            <div *ngIf="selectedPaymentMethod === 'credit-card'" class="payment-details">
+
+                <form [formGroup]="paymentForm" (ngSubmit)="processPayment()">
+                <div class="flex-container">
+
+                    <div class="full-width">
+                        <label for="cardNumber">Card Number:</label>
+      <input type="text" id="cardNumber" formControlName="cardNumber">
+      <div *ngIf="paymentForm.get('cardNumber')!.value && paymentForm.get('cardNumber')!.hasError('pattern') && paymentForm.get('cardNumber')!.touched" style="color: red;">
+        Invalid card number. Please enter 16 digits.
+      </div>
+      <div *ngIf="paymentForm.get('cardNumber')!.invalid && paymentForm.get('cardNumber')!.touched && !paymentForm.get('cardNumber')!.hasError('pattern')" style="color: red;">
+        Card number is required.
+      </div>
+                          </div>
+                    </div>
+                           
+                <div class="flex-container">
+
+                                
+                    <div class="half-width">
+                       
+                        <label for="expiry">Expiration Date:</label>
+                        <input type="text" id="expiry" formControlName="expiry" placeholder="MM/YY">
+                        <span *ngIf="paymentForm.get('expiry')?.invalid && paymentForm.get('expiry')?.touched" class="error-message" style="color: red;">
+                            Invalid MM/YY format. Please enter a valid expiration date (MM/YY).
+                        </span>
+                        
+                    </div>
+                                <div class="half-width">
+                                    <label for="ccv">CCV:</label>
+                                    <input type="text" id="ccv" formControlName="ccv">
+                                    <span *ngIf="paymentForm.get('ccv')?.hasError('invalidCCV') && paymentForm.get('ccv')?.touched" class="error-message" style="color: red;">
+                                      CCV number must be 3 digits long and numeric.
+                                    </span>
+                                  </div>
+                                </div>
+                            </form>
+
+                <button class="pay-button"  (click)="processPayment()">Make Payment: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</button>
+
+            </div>
+       
+
+ 
+
+            <div *ngIf="selectedPaymentMethod === 'debit-card'" class="payment-details">
+
+                <form [formGroup]="paymentForm" (ngSubmit)="processPayment()">
+                    <div class="flex-container">
+    
+                        <div class="full-width">
+                            <label for="cardNumber">Card Number:</label>
+          <input type="text" id="cardNumber" formControlName="cardNumber">
+          <div *ngIf="paymentForm.get('cardNumber')!.value && paymentForm.get('cardNumber')!.hasError('pattern') && paymentForm.get('cardNumber')!.touched" style="color: red;">
+            Invalid card number. Please enter 16 digits.
+          </div>
+          <div *ngIf="paymentForm.get('cardNumber')!.invalid && paymentForm.get('cardNumber')!.touched && !paymentForm.get('cardNumber')!.hasError('pattern')" style="color: red;">
+            Card number is required.
+          </div>
+                              </div>
+                        </div>
+                               
+                    <div class="flex-container">
+    
+                                    
+                        <div class="half-width">
+                           
+                            <label for="expiry">Expiration Date:</label>
+                            <input type="text" id="expiry" formControlName="expiry" placeholder="MM/YY">
+                            <span *ngIf="paymentForm.get('expiry')?.invalid && paymentForm.get('expiry')?.touched" class="error-message" style="color: red;">
+                                Invalid MM/YY format. Please enter a valid expiration date (MM/YY).
+                            </span>
+                            
+                        </div>
+                                    <div class="half-width">
+                                        <label for="ccv">CCV:</label>
+                                        <input type="text" id="ccv" formControlName="ccv">
+                                        <span *ngIf="paymentForm.get('ccv')?.hasError('invalidCCV') && paymentForm.get('ccv')?.touched" class="error-message" style="color: red;">
+                                          CCV number must be 3 digits long and numeric.
+                                        </span>
+                                      </div>
+                                    </div>
+                                </form>
+    
+                    <button class="pay-button" [disabled]="paymentForm.invalid" (click)="processPayment()">Make Payment: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</button>
+    
+            </div>
+
+ 
+            <div *ngIf="selectedPaymentMethod === 'account-transfer'" class="payment-details">
+                <form [formGroup]="paymentForm">
+                <div class="flex-container">
+                  <div class="full-width">
+                    <label for="account-number">Account Number:</label>
+                    <input type="text" id="account-number" formControlName="accountNumber">
+                    <div *ngIf="paymentForm.get('accountNumber')!.hasError('pattern') && paymentForm.get('accountNumber')!.touched" style="color: red;">
+                      Invalid account number. It should be 15 digits without any spaces and alphabets.
+                    </div>
+                    <div *ngIf="paymentForm.get('accountNumber')!.invalid && paymentForm.get('accountNumber')!.touched && !paymentForm.get('accountNumber')!.hasError('pattern')" style="color: red;">
+                      Account number is required.
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="flex-container">
+                  <div class="full-width">
+                    <label for="account-name">Account Name:</label>
+                    <input type="text" id="account-name" formControlName="accountName">
+                    <div *ngIf="paymentForm.get('accountName')!.hasError('pattern') && paymentForm.get('accountName')!.touched" style="color: red;">
+                      Invalid account name. It should contain at least two alphabetical characters and spaces only.
+                    </div>
+                    <div *ngIf="paymentForm.get('accountName')!.invalid && paymentForm.get('accountName')!.touched && !paymentForm.get('accountName')!.hasError('pattern')" style="color: red;">
+                      Account name is required.
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="flex-container">
+                  <div class="full-width">
+                    <label for="ifsc-code">IFSC Code:</label>
+                    <input type="text" id="ifsc-code" formControlName="ifscCode">
+                    <div *ngIf="paymentForm.get('ifscCode')!.hasError('pattern') && paymentForm.get('ifscCode')!.touched" style="color: red;">
+                      Invalid IFSC code. It should be 11 characters with the first four characters representing the bank name and the last seven characters numeric or alphabetic.
+                    </div>
+                    <div *ngIf="paymentForm.get('ifscCode')!.invalid && paymentForm.get('ifscCode')!.touched && !paymentForm.get('ifscCode')!.hasError('pattern')" style="color: red;">
+                      IFSC code is required.
+                    </div>
+                  </div>
+                </div>
+              
+                <button class="pay-button" (click)="processPayment()">Make Payment: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</button>
+            </form>
+              </div>
+
+ 
+
+           
+
+            <div *ngIf="selectedPaymentMethod === 'upi'" class="payment-details">
+
+                <label for="upi-id">UPI OPTIONS</label>
+
+                <!-- <input type="text" id="upi-id" name="upiId" [(ngModel)]="upiId" required> -->
+
+                <div class="payment-options">
+
+                    <!-- <label for="google-pay">Google Pay:</label> -->
+
+                    <input type="radio" id="google-pay" name="paymentOption" value="google-pay"> Google Pay<br>
+
+                    <!-- <label for="paytm">Paytm:</label> -->
+
+                    <input type="radio" id="paytm" name="paymentOption"  value="paytm"> Paytm <br>
+
+                </div><br>
+
+               
+
+                <button type="button" class="pay-button">Continue</button>
+
+            </div>
+
+        </form>
+        </div>
+
+        </div>
+        </div>
+    </div>
+
+           
+        </div>
+        </main>
+        </div>
+    
+
+        
+          
+            <!-- <div class="payment-method">
+              <label for="paymentMethod">Select Payment Method:</label>
+              <select id="paymentMethod" [(ngModel)]="selectedPaymentMethod">
+                <option value="credit-card">Credit Card</option>
+                <option value="debit-card">Debit Card</option>
+                <option value="upi">UPI</option>
+              </select>
+            </div>
+          
+            <div *ngIf="selectedPaymentMethod === 'credit-card' || selectedPaymentMethod === 'debit-card'">
+              <label for="cardNumber">Card Number:</label>
+              <input type="text" id="cardNumber" [(ngModel)]="cardNumber" required>
+            </div>
+          
+            <div *ngIf="selectedPaymentMethod === 'upi'">
+              <label for="upiId">UPI ID:</label>
+              <input type="text" id="upiId" [(ngModel)]="upiId" required>
+            </div>
+          
+            <button (click)="processPayment()">Make Payment</button> -->
+          <!-- </div>
+          </main>
+          </div> -->
+        
