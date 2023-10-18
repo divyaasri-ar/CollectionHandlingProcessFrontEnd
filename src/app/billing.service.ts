@@ -99,6 +99,12 @@ export class BillingService {
 
 
 
+
+  logout() {
+    return this.http.post('/api/logout', {});
+  }
+
+
   // processPayment(customerId: number, paymentAmount: number): Observable<void> {
   //   const processPaymentUrl = `${this.aUrl}/${customerId}/process-payment`;
   //   const paymentDetails = {
