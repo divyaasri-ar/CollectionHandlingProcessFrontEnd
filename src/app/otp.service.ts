@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { OtpRequest } from 'src/OtpRequest';
 import { OtpResponseDto } from './OtpResponseDto';
@@ -10,8 +10,10 @@ import { pendcustomer } from 'src/pendcustomer';
   providedIn: 'root'
 })
 export class OtpService {
+  headers:any;
 
   private baseUrl = 'http://localhost:8770/otp'; 
+  otp: any;
 
     constructor(private http: HttpClient) {}
 
@@ -21,6 +23,14 @@ export class OtpService {
 
     validateOtp(otpValidationRequest: OtpValidationRequest): Observable<any> {
         return this.http.post<string>(`http://localhost:8770/otp/validate`, otpValidationRequest);
+    }
+
+    private otpUrl = 'http://localhost:8770';
+    
+    checkPhoneNumberExists(phoneNumber: string): Observable<any> {
+      return this.http.post<string>(`${this.otpUrl}/otp/checkPhoneNumber`, phoneNumber, {
+        headers: new HttpHeaders()
+      });
     }
 
     private apiUrl = 'http://localhost:8770/customers'; 

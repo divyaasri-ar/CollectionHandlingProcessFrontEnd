@@ -1,1 +1,121 @@
-<p>success works!</p>
+<!-- <p>success works!</p> -->
+<div id="outer">
+    <header class="header order-last" id="tm-header">
+        <nav class="navbar">
+            <div class="collapse navbar-collapse single-page-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/customer/home"><span class="icn"><i class="fas fa-2x fa-home"></i></span> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/aboutcust"><span class="icn"><i class="fas fa-2x fa-info-circle"></i></span> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/paymentportal"><span class="icn"><i class="fas fa-2x fa-user-lock"></i></span> Payment Portal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/viewbill"><span class="icn"><i class="fas fa-2x fa-user-lock"></i></span> View Bill</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/customerlogin"><span class="icn"><i class="fas fa-2x fa-door-open"></i></span> Logout </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" routerLink="/customersupportlogin"><span class="icn"><i class="fas fa-2x fa-headset"></i></span> Customer Support Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/customerlogin"><span class="icn"><i class="fas fa-2x fa-user"></i></span> Customer Login</a>
+                    </li> -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <button class="navbar-button collapsed" type="button">
+        <span class="menu_icon">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </span>
+    </button>
+
+    
+    
+
+    <main id="content-box" class="order-first">
+        <div [@successAnimation]="animationState" class="success-message">
+
+            <!-- <h2>Payment Successful!</h2>
+          
+            <p>Thank you for your purchase.</p> -->
+            <h2><i class="fas fa-check"></i>  Payment Successful!</h2>
+<p>Thank you for your payment. Your bill has been successfully processed.</p>
+          
+          </div>
+          <div class="banner-section section bgcol" >
+            
+            <div class="container">
+                <div class="item">
+
+                   
+
+
+          <div *ngIf="customerDetails" class="receipt-box" style="color:black;">
+            <h2>Customer Details</h2>
+            <p>ID: {{ customerDetails.id }}</p>
+            <p>Name: {{ customerDetails.name }}</p>
+            <p>Email: {{ customerDetails.email }}</p>
+            <p>Mobile: {{ customerDetails.mobile }}</p>
+            <p>Outstanding Bill: {{ customerDetails.outbill | currency:'INR':'symbol':'1.2-2' }}</p>
+            <p>Due Date: {{ customerDetails.duedate | date:'shortDate' }}</p>
+            <!-- <button class="pay-button" (click)="goToPaymentPage()">Pay Bill</button> -->
+        </div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<!-- <html>
+    <head>
+        <title>Remainder</title>
+    </head>
+    <body>
+        "Dear " + customer.getName() + ",\n\n"
+                + "This is a reminder that your outstanding bill of Rs."
+                + customer.getOutstandingBill() + " is due today. "
+                + "Please make the payment as soon as possible. "
+                + "Thank you for your cooperation.";
+        emailService.sendEmail(customer.getEmail(), "Subject: Your Invoice", emailContent);
+        <br>
+        <br>
+        <table>
+            <tr>
+                <td>Id</td>
+                <td>customer.getId</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>customer.getName</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>customer.getName</td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td>customer.getName</td>
+            </tr>
+            <tr>
+                <td>Outstanding Bill</td>
+                <td>customer.getName</td>
+            </tr>
+            <tr>
+                <td>Due Date</td>
+                <td>customer.getName</td>
+            </tr>
+        </table>
+        <form action='http://localhost:4200/paymentportal'>
+            <input type='submit' value='pay'>
+        </form>
+    </body>
+</html> -->

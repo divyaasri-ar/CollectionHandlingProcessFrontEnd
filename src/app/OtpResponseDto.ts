@@ -1,4 +1,5 @@
 export interface OtpResponseDto {
+    otp: any;
     status: OtpStatus;
     message: string;
 }

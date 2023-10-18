@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Installment } from 'src/Installment';
 import { OtpValidationRequest } from 'src/OtpValidationRequest';
 
 @Injectable({
@@ -58,14 +59,45 @@ export class BillingService {
   private pUrl = 'http://localhost:8770/api/customers';
   updateCustomerStatus(customerId: number): Observable<any> {
     // Make HTTP request to update customer status to 'paid'
-    return this.http.post(`${this.pUrl}/{customerId}/process`,customerId);
+    return this.http.post(`${this.pUrl}/${customerId}/process`,customerId);
   }
 
   private dUrl = 'http://localhost:8770';
   deleteCustomerFromPendingDatabase(customerId: any): Observable<any> {
     // Make HTTP request to delete customer from pending database
-    return this.http.delete(`${this.dUrl}/delete/{customerId}`);
+    return this.http.post(`${this.dUrl}/delete/${customerId}`,customerId);
   }
+
+
+  private optUrl = 'http://localhost:8770'; 
+  calculateInstallmentAmounts(requestBody: any): Observable<any> {
+    // const url = `${this.optUrl}/calculate-installment`;
+    // return this.http.post<number[]>(url, requestBody);
+    return this.http.post(`${this.optUrl}/calculate-installment`,requestBody);
+  }
+
+  saveInstallment(installment: Installment): Observable<Installment> {
+    const url = `${this.optUrl}/api/installments`;
+    return this.http.post<Installment>(url, installment);
+  }
+
+
+  private cUrl = 'http://localhost:8770'; 
+  getCustomerData(): Observable<any> {
+    // Assume you have an API endpoint /customer or similar to fetch customer data
+    return this.http.get<any>(`${this.optUrl}/all`);
+  }
+
+  
+  private epiUrl = 'http://localhost:8770'; 
+  
+  sendEmailToPendingCustomer(customerId: number): Observable<any> {
+    return this.http.post(`${this.epiUrl}/email/${customerId}`, null);
+  }
+
+  
+
+
 
   // processPayment(customerId: number, paymentAmount: number): Observable<void> {
   //   const processPaymentUrl = `${this.aUrl}/${customerId}/process-payment`;

@@ -13,8 +13,11 @@
                         <a class="nav-link" routerLink="/pendingcustomerlist"><span class="icn"><i class="fas fa-2x fa-user-lock"></i></span> Pending Customer List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/notification"><span class="icn"><i class="fas fa-2x fa-user-lock"></i></span> Notification  </a>
+                        <a class="nav-link" routerLink="/customersupportlogin"><span class="icn"><i class="fas fa-2x fa-door-open"></i></span> Logout </a>
                     </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" routerLink="/notification"><span class="icn"><i class="fas fa-2x fa-user-lock"></i></span> Notification  </a>
+                    </li> -->
                     <!-- <li class="nav-item">
                         <a class="nav-link" routerLink="/customersupportlogin"><span class="icn"><i class="fas fa-2x fa-headset"></i></span> Customer Support Login</a>
                     </li>
@@ -59,6 +62,8 @@
             <th>Name</th>
             <th>Mobile No</th>
             <th>Email</th>
+            <th>Previous Due</th>
+            <th>Current Due</th>
             <th>Outstanding Bill</th>
             <th>Due Date</th>
             <th>Days Unpaid</th>
@@ -78,10 +83,12 @@
         <tr *ngFor="let customer of customers">
             <td>{{ customer.id }}</td>
             <td>{{ customer.name }}</td>
-            <td>{{ customer.mobileNo }}</td>
+            <td>{{ customer.mobile }}</td>
             <td>{{ customer.email }}</td>
-            <td>{{ customer.outstandingBill }}</td>
-            <td>{{ customer.dueDate }}</td>
+            <td>{{ customer.prevdue }}</td>
+            <td>{{ customer.currdue }}</td>
+            <td>{{ customer.outbill }}</td>
+            <td>{{ customer.duedate }}</td>
             <td>{{ customer.daysUnpaid }}</td>
             <td><button (click)="sendEmailToCustomer(customer)">Send Email</button></td>
             <!-- Add more cells for other properties if needed -->

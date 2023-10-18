@@ -1,0 +1,230 @@
+.success-message {
+
+    text-align: center;
+  
+    background-color: #4CAF50;
+  
+    color: white;
+  
+    padding: 20px;
+  
+    border-radius: 5px;
+  
+  }
+
+  body {
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f4f4f4;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+ 
+
+.payment-container {
+
+    max-width: 1000px;
+
+    margin: 0px auto;
+
+    background-color: #fff;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 0 30%;
+}
+ 
+
+.payment-method {
+
+    font-size: 20px;
+
+    margin-bottom: 20px;
+
+}
+
+ 
+
+.payment-details {
+
+    margin-bottom: 20px;
+
+}
+
+ 
+
+label {
+
+    font-weight: bold;
+
+    display: block;
+
+    margin-bottom: 5px;
+
+}
+
+ 
+
+input[type="text"] {
+
+    width: 100%;
+
+    padding: 10px;
+
+    font-size: 16px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    margin-bottom: 10px;
+
+}
+
+ 
+
+select {
+
+    width: 100%;
+
+    padding: 10px;
+
+    font-size: 16px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+
+}
+
+ 
+
+.pay-button {
+
+    background-color: #4caf50;
+
+    color: white;
+
+    padding: 15px 130px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: background-color 0.3s ease;
+
+   
+
+}
+
+ 
+
+.pay-button:hover {
+
+    background-color: #45a049;
+
+}
+
+ 
+
+/* ... (previous styles) ... */
+
+ 
+
+.flex-container {
+
+    display: flex;
+
+}
+
+ 
+
+.half-width {
+
+    width: 50%;
+
+    margin-bottom: 20px;
+
+    padding-right: 10px;
+
+}
+
+.full-width {
+
+    width: 100%;
+
+    margin-bottom: 20px;
+
+    padding-right: 10px;
+
+}
+
+.bgcol
+
+{
+
+ 
+
+    background-image: url('src/assets/img/bill3.jpg'); /* Replace 'background.jpg' with your image file path */
+
+ 
+
+    background-size: contain; /* This ensures the image covers the whole background */
+
+ 
+
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+
+ 
+
+    background-attachment: fixed; /* Fixed background when scrolling */
+
+ 
+
+}
+
+.receipt-box {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.pay-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.pay-button:hover {
+    background-color: #45a049;
+}

@@ -19,6 +19,10 @@ import { ViewReceiptComponent } from './view-receipt/view-receipt.component';
 import { GooglePayComponent } from './google-pay/google-pay.component';
 import { PaytmComponent } from './paytm/paytm.component';
 import { SuccessComponent } from './success/success.component';
+import { PaymentOptionsComponent } from './payment-options/payment-options.component';
+import { PaymentInstallmentComponent } from './payment-installment/payment-installment.component';
+import { PaymentIssuesComponent } from './payment-issues/payment-issues.component';
+import { CustomeroptionsLoginComponent } from './customeroptions-login/customeroptions-login.component';
 
 const routes: Routes = [
   {path:'',
@@ -98,7 +102,23 @@ const routes: Routes = [
   {
     path: 'success',
     component: SuccessComponent,
-    data: { message: 'Congratulations! Your bill has been paid.' }
+    //data: { message: 'Congratulations! Your bill has been paid.' }
+  },
+  {
+    path:'paymentoptions',
+    component:PaymentOptionsComponent
+  },
+  {
+    path:'paymentinstallment',
+    component:PaymentInstallmentComponent
+  },
+  {
+    path:'paymentissues',
+    component:PaymentIssuesComponent
+  },
+  {
+    path:'customeroptionslogin',
+    component:CustomeroptionsLoginComponent
   }
 ];
 

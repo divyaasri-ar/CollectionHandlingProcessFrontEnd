@@ -15,6 +15,9 @@
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/viewbill"><span class="icn"><i class="fas fa-2x fa-user-lock"></i></span> View Bill</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/customerlogin"><span class="icn"><i class="fas fa-2x fa-door-open"></i></span> Logout </a>
+                  </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" routerLink="/customersupportlogin"><span class="icn"><i class="fas fa-2x fa-headset"></i></span> Customer Support Login</a>
                     </li>
@@ -108,7 +111,7 @@
 
                     <div class="full-width">
                         <label for="cardNumber">Card Number:</label>
-      <input type="text" id="cardNumber" formControlName="cardNumber">
+      <input type="text" id="cardNumber" formControlName="cardNumber" required> 
       <div *ngIf="paymentForm.get('cardNumber')!.value && paymentForm.get('cardNumber')!.hasError('pattern') && paymentForm.get('cardNumber')!.touched" style="color: red;">
         Invalid card number. Please enter 16 digits.
       </div>
@@ -124,7 +127,7 @@
                     <div class="half-width">
                        
                         <label for="expiry">Expiration Date:</label>
-                        <input type="text" id="expiry" formControlName="expiry" placeholder="MM/YY">
+                        <input type="text" id="expiry" formControlName="expiry" placeholder="MM/YY" required>
                         <span *ngIf="paymentForm.get('expiry')?.invalid && paymentForm.get('expiry')?.touched" class="error-message" style="color: red;">
                             Invalid MM/YY format. Please enter a valid expiration date (MM/YY).
                         </span>
@@ -132,7 +135,7 @@
                     </div>
                                 <div class="half-width">
                                     <label for="ccv">CCV:</label>
-                                    <input type="text" id="ccv" formControlName="ccv">
+                                    <input type="text" id="ccv" formControlName="ccv" required>
                                     <span *ngIf="paymentForm.get('ccv')?.hasError('invalidCCV') && paymentForm.get('ccv')?.touched" class="error-message" style="color: red;">
                                       CCV number must be 3 digits long and numeric.
                                     </span>
@@ -149,7 +152,7 @@
 
             <div *ngIf="selectedPaymentMethod === 'debit-card'" class="payment-details">
 
-                <form [formGroup]="paymentForm" (ngSubmit)="processPayment()">
+                <form [formGroup]="paymentForm" [formGroup]="paymentForm">
                     <div class="flex-container">
     
                         <div class="full-width">
@@ -186,7 +189,7 @@
                                     </div>
                                 </form>
     
-                    <button class="pay-button" [disabled]="paymentForm.invalid" (click)="processPayment()">Make Payment: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</button>
+                    <button class="pay-button"  (click)="processPayment()">Make Payment: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</button>
     
             </div>
 

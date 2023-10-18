@@ -6,6 +6,7 @@ import { OtpService } from '../otp.service';
 import { OtpRequest } from 'src/OtpRequest';
 import { OtpValidationRequest } from 'src/OtpValidationRequest';
 import { ApiResponse } from 'src/ApiResponse';
+import { HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -13,6 +14,7 @@ import { ApiResponse } from 'src/ApiResponse';
 })
 export class CustomerComponent {
 
+  
   username: string='';
   phoneNumber: string='';
   otpInput: string='';
@@ -21,17 +23,66 @@ export class CustomerComponent {
 
   constructor(private otpService: OtpService, private router: Router) { }
 
+  // generateOtp(): void {
+  //   const otpRequest: OtpRequest = {
+  //     username: this.username, // You can replace this with an actual username or user ID
+  //     phoneNumber: this.phoneNumber
+  //   };
+
+  //   this.otpService.sendOtp(otpRequest).subscribe(response => { 
+  //     console.log('OTP Sent:', response);
+  //     this.otpSent = true;
+  //   });
+  // }
+
+  // generateOtp(): void {
+  //   // Check if the provided phoneNumber exists in the customer database
+  //   this.otpService.checkPhoneNumberExists(this.phoneNumber).subscribe(
+  //     (response: any) => {
+  //       if (response.exists) {
+  //         const otpRequest: OtpRequest = {
+  //           username: this.username, // You can replace this with an actual username or user ID
+  //           phoneNumber: this.phoneNumber
+  //         };
+
+  //         this.otpService.sendOtp(otpRequest).subscribe(response => { 
+  //           console.log('OTP Sent:', response);
+  //           this.otpSent = true;
+  //         });
+  //       } else {
+  //         alert('Invalid phone number. Please enter a registered phone number.');
+  //       }
+  //     },
+  //     error => {
+  //       console.error('Error checking phone number:', error);
+  //       alert('Error checking phone number. Please try again.');
+  //     }
+  //   );
+  // }
+
   generateOtp(): void {
     const otpRequest: OtpRequest = {
       username: this.username, // You can replace this with an actual username or user ID
       phoneNumber: this.phoneNumber
     };
+    this.otpService.checkPhoneNumberExists(this.phoneNumber).subscribe(
+          (response: any) => {
+            console.log("login success",response);
 
     this.otpService.sendOtp(otpRequest).subscribe(response => { 
       console.log('OTP Sent:', response);
+      this.otpService.otp=response.otp;
+      console.log(this.otpService.otp);
       this.otpSent = true;
     });
-  }
+  },
+  error => {
+          console.error('Error checking phone number:', error);
+          alert('Error checking phone number. Please try again.');
+        }
+      );
+    }
+
 
   
   verifyOtp(): void {
@@ -60,6 +111,7 @@ export class CustomerComponent {
       }
     );
   }
+}
 
   // verifyOtp(): void {
   //   const otpValidationRequest: OtpValidationRequest = {
@@ -98,7 +150,7 @@ export class CustomerComponent {
   //   );
   // }
 
-}
+
 
 
 

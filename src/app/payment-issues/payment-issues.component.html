@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue Form</title>
+</head>
+<body>
+  <div class="container">
+<div>
+  <label for="issue-type">Issue Type:</label>
+  <select id="issue-type" [(ngModel)]="selectedIssue">
+    <option value="moneyNotPaid">Money sent but not paid</option>
+    <option value="networkIssue">Network issue</option>
+    <option value="loginProblem">Login problems</option>
+    <option value="accountAccess">Account access issue</option>
+    <!-- Add more issue options as needed -->
+  </select>
+</div>
+
+<div>
+  <label for="other-issue">Other Issue:</label>
+  <textarea id="other-issue" [(ngModel)]="otherIssue"></textarea>
+</div>
+
+<div>
+  <label for="priority">Priority:</label>
+  <select id="priority" [(ngModel)]="selectedPriority">
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+</div>
+
+<div>
+  <label for="attachment">Attach File:</label>
+  <input type="file" id="attachment" (change)="handleFileInput($event)" accept=".jpg, .jpeg, .png, .pdf">
+</div>
+
+<button (click)="raiseTicket()">Raise Ticket</button>
+</div>
+</body>
+</html>
+
+
+
+<!-- <div>
+    <label for="issue-type">Issue Type:</label>
+    <select id="issue-type" [(ngModel)]="selectedIssue">
+      <option value="moneyNotPaid">Money sent but not paid</option>
+      <option value="networkIssue">Network issue</option>
+    </select>
+  </div>
+  
+  <div>
+    <label for="other-issue">Other Issue:</label>
+    <textarea id="other-issue" [(ngModel)]="otherIssue"></textarea>
+  </div>
+  
+  <button (click)="raiseTicket()">Raise Ticket</button> -->
+  

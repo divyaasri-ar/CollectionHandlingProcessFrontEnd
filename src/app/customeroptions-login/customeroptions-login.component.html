@@ -19,8 +19,8 @@
                         <a class="nav-link" routerLink="/customerlogin"><span class="icn"><i class="fas fa-2x fa-user"></i></span> Customer Login</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" routerLink="/home"><span class="icn"><i class="fas fa-2x fa-door-open"></i></span> Logout </a>
-                  </li>
+                        <a class="nav-link" routerLink="/customerlogin"><span class="icn"><i class="fas fa-2x fa-door-open"></i></span> Logout </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -77,57 +77,3 @@
           </div>
           </main>
           </div>
-          
-         
-
-
-
-
-    
-    <!-- <main id="content-box" class="order-first">
-        <div class="banner-section section bgcol">
-       
-            <div class="container">
-                <div class="topnav" >
-
-                    <span style="display: flex; align-items: center;"><br><br>
-                  
-                      <i class="fas fa-2x fa-file-invoice-dollar"></i>
-                  
-                      <h3 style="margin-left: 10px; margin-top: 0; ">Simply Invoice</h3>
-                  
-                    </span>
-                <div id="bg"></div>
-                <div class="title text-right">
-                    <h2 style="color: #1e3c72;">Customer Login</h2>
-                </div>
-
-                <form>
-                    
-  <div *ngIf="!otpSent">
-    <h2>Enter Your Phone Number</h2>
-    <div class="form-field">
-    <input type="text" name="phoneNumber" [(ngModel)]="phoneNumber" placeholder="Enter phone number" /><br>
-</div>
-<div class="form-field">
-    <button class="btn" (click)="generateOtp()">Generate OTP</button></div>
-  </div>
-  
-  <div *ngIf="otpSent && !otpVerified">
-    <h2>Enter OTP</h2>
-    <div class="form-field">
-    <input type="text" name="otpInput" [(ngModel)]="otpInput" placeholder="Enter OTP" /></div>
-    <div class="form-field">
-    <button class="btn" (click)="verifyOtp()">Verify OTP</button></div>
-  </div>
-  
-  <div *ngIf="otpVerified">
-    <h2>OTP Verified!</h2>
-  </div>
-                  </form>
-            </div>
-        </div>
-        </div>
-        </main>
-        </div>
-     -->

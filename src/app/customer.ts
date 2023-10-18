@@ -4,6 +4,8 @@ export interface Customer {
     mobile: string;
     email: string;
     duedate: Date;
+    prevdue: number;
+    currdue: number;
     outbill: number;
     status: string;
   }

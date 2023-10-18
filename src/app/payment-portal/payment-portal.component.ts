@@ -107,21 +107,20 @@ ngOnInit(): void {
     );
   } else {
     console.error('Invalid customer ID');
-    // Handle the error or show a user-friendly message
+   
   }
-  // Check if customerId is a valid number before making the API call
+ 
   if (!isNaN(this.customerId) && this.customerId !== null) {
     this.loadOutstandingBill();
   } else {
     console.error('Invalid customerId');
-    // Handle the error or show a user-friendly message
   }
 }
 
 loadOutstandingBill(): void {
   this.customerService.getOutstandingBill(this.customerId).subscribe(
     (data: any) => {
-      this.outstandingBill = data; // Assuming the API response contains the outstanding bill amount
+      this.outstandingBill = data; 
     },
     (error: any) => {
       console.error('Error loading outstanding bill:', error);
@@ -158,7 +157,7 @@ expiryValidator(control: FormControl): { [key: string]: boolean } | null {
   
       switch (this.selectedPaymentMethod) {
         case 'credit-card':
-          paymentDetails = { customerId: this.customerId, amount: this.outstandingBill, cardNumber: this.cardNumber };
+          paymentDetails = { customerId: this.customerId, amount: this.outstandingBill, cardNumber: "1234456" };
           break;
         case 'debit-card':
           paymentDetails = { customerId: this.customerId, amount: this.outstandingBill, debitCardNumber: this.debitCardNumber };
@@ -181,24 +180,17 @@ expiryValidator(control: FormControl): { [key: string]: boolean } | null {
       //   }
       // ); payment()
  console.log("billing");
-  this.billingService.updateCustomerStatus(paymentDetails).subscribe(response => {
+ console.log(paymentDetails);
+ console.log(this.customerId);
+  this.billingService.updateCustomerStatus(this.customerId).subscribe(response => {
     console.log("billingnew");
-    if (response.success) {
       console.log("success pay",response);
-      this.router.navigate(['/success'], { state: { message: 'Congratulations! Your bill has been paid.' } });
+      this.router.navigate(['/success']);//, { state: { message: 'Congratulations! Your bill has been paid.' } });
 
       this.billingService.deleteCustomerFromPendingDatabase(this.customerId).subscribe(deleteResponse => {
-        if (deleteResponse.success) {
          
           console.log("success deleted",response);
-        } else {
-          console.log("something wrong",response);
-        }
-      });
-    } else {
-      console.log("Invalid",response);
-      
-    }
+      })
   });
   
     } else {

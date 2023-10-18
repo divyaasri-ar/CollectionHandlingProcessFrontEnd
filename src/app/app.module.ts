@@ -29,6 +29,9 @@ import { GooglePayComponent } from './google-pay/google-pay.component';
 import { PaytmComponent } from './paytm/paytm.component';
 import { PaymentOptionsComponent } from './payment-options/payment-options.component';
 import { SuccessComponent } from './success/success.component';
+import { PaymentInstallmentComponent } from './payment-installment/payment-installment.component';
+import { PaymentIssuesComponent } from './payment-issues/payment-issues.component';
+import { CustomeroptionsLoginComponent } from './customeroptions-login/customeroptions-login.component';
 
 
 @NgModule({
@@ -54,7 +57,10 @@ import { SuccessComponent } from './success/success.component';
     GooglePayComponent,
     PaytmComponent,
     PaymentOptionsComponent,
-    SuccessComponent
+    SuccessComponent,
+    PaymentInstallmentComponent,
+    PaymentIssuesComponent,
+    CustomeroptionsLoginComponent
   ],
   imports: [
     BrowserModule,

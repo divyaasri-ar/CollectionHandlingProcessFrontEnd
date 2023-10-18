@@ -12,6 +12,9 @@
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/customerlist"><span class="icn"><i class="fas fa-2x fa-user-lock"></i></span> Customer List</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/adminlogin"><span class="icn"><i class="fas fa-2x fa-door-open"></i></span> Logout </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -52,7 +55,9 @@
 
         <th>Customer Email</th>
 
-        <th>Due Date</th>
+        <th>Due    Date</th>
+        <th>Previous Due</th>
+        <th>Current Due</th>
 
         <th>Outstanding Bill</th>
 
@@ -67,6 +72,8 @@
           <td>{{ customer.mobile }}</td>
           <td>{{ customer.email }}</td>
           <td>{{ customer.duedate }}</td>
+          <td>{{ customer.prevdue }}</td>
+          <td>{{ customer.currdue }}</td>
           <td>{{ customer.outbill }}</td>
           <td>{{ customer.status }}</td>
         </tr>

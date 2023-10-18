@@ -1,0 +1,19 @@
+<div class="installment-container">
+    <h2>Payment by Installment</h2>
+    <div class="form-group">
+      <label for="installmentDuration">Select Installment Duration:</label>
+      <select [(ngModel)]="selectedDuration">
+        <option value="3">2 split</option>
+        <option value="4">3 split</option>
+        <option value="5">4 split</option>
+      </select>
+    </div>
+    <button (click)="calculateInstallment()">Get Splited Amount</button>
+    <div *ngIf="splitAmounts !== undefined">
+      <p>Installment Amount: {{ splitAmounts }}</p>
+      <!-- <button (click)="submitInstallment()">Pay Installment</button> -->
+    </div>
+    
+    <button (click)="submitInstallment(customerId)">Pay Installment</button>
+  </div>
+  
