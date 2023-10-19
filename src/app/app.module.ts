@@ -32,6 +32,8 @@ import { SuccessComponent } from './success/success.component';
 import { PaymentInstallmentComponent } from './payment-installment/payment-installment.component';
 import { PaymentIssuesComponent } from './payment-issues/payment-issues.component';
 import { CustomeroptionsLoginComponent } from './customeroptions-login/customeroptions-login.component';
+import { SupportCenterComponent } from './support-center/support-center.component';
+import { InstallmentSuccessComponent } from './installment-success/installment-success.component';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { CustomeroptionsLoginComponent } from './customeroptions-login/customero
     SuccessComponent,
     PaymentInstallmentComponent,
     PaymentIssuesComponent,
-    CustomeroptionsLoginComponent
+    CustomeroptionsLoginComponent,
+    SupportCenterComponent,
+    InstallmentSuccessComponent
   ],
   imports: [
     BrowserModule,

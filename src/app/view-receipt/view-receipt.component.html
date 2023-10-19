@@ -62,6 +62,8 @@
             <p>Name: {{ customerDetails.name }}</p>
             <p>Email: {{ customerDetails.email }}</p>
             <p>Mobile: {{ customerDetails.mobile }}</p>
+            <p>Previous Due: {{ customerDetails.prevdue | currency:'INR':'symbol':'1.2-2' }}</p>
+            <p>Current Due: {{ customerDetails.currdue | currency:'INR':'symbol':'1.2-2' }}</p>
             <p>Outstanding Bill: {{ customerDetails.outbill | currency:'INR':'symbol':'1.2-2' }}</p>
             <p>Due Date: {{ customerDetails.duedate | date:'shortDate' }}</p>
             <button class="pay-button" (click)="goToPaymentPage()">Pay Bill</button>

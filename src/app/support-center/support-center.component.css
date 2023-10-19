@@ -1,0 +1,247 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.contact-method {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    text-align: center;
+}
+
+.method-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.method-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.method-info p {
+    font-size: 18px;
+    color: #555;
+}
+
+.branch-addresses {
+    display: flex;
+    justify-content: space-around;
+}
+
+.branch-address {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    text-align: left;
+}
+
+.branch-address h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.branch-address address {
+    font-size: 18px;
+    color: #555;
+}
+
+
+.feedback-form {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.feedback-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feedback-form label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.feedback-form button {
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-form button:hover {
+    background-color: #45a049;
+}
+
+.social-media {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 50px;
+    height: 50px;
+} 
+
+
+
+
+ /* body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.contact-method {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    text-align: center;
+}
+
+.method-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.method-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.method-info p {
+    font-size: 18px;
+    color: #555;
+}
+
+.branch-addresses {
+    text-align: left;
+}
+
+.branch-addresses h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.address {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.feedback-form {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.feedback-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feedback-form label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.feedback-form button {
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-form button:hover {
+    background-color: #45a049;
+}
+
+.social-media {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 50px;
+    height: 50px;
+}  */

@@ -1,19 +1,115 @@
-<div class="installment-container">
-    <h2>Payment by Installment</h2>
-    <div class="form-group">
-      <label for="installmentDuration">Select Installment Duration:</label>
-      <select [(ngModel)]="selectedDuration">
-        <option value="3">2 split</option>
-        <option value="4">3 split</option>
-        <option value="5">4 split</option>
-      </select>
-    </div>
-    <button (click)="calculateInstallment()">Get Splited Amount</button>
-    <div *ngIf="splitAmounts !== undefined">
-      <p>Installment Amount: {{ splitAmounts }}</p>
-      <!-- <button (click)="submitInstallment()">Pay Installment</button> -->
-    </div>
-    
-    <button (click)="submitInstallment(customerId)">Pay Installment</button>
+<!-- <div class="installment-container">
+
+  <h2>Payment by Installment</h2>
+
+  <div class="form-group">
+
+    <label for="installmentDuration">Select Installment Duration:</label>
+
+    <select [(ngModel)]="selectedDuration">
+
+      <option value="3">2 split</option>
+
+      <option value="4">3 split</option>
+
+      <option value="5">4 split</option>
+
+    </select>
+
   </div>
+
+  <button (click)="calculateInstallment()">Get Splited Amount</button>
+
+  <div *ngIf="splitAmounts !== undefined">
+
+    <p>Installment Amount: {{ splitAmounts }}</p>
+
+  </div>
+
+ 
+
+  <button (click)="submitInstallment(customerId)">Pay Installment</button>
+
+</div> -->
+
+
+<div class="installment-container">
+  <h2>Payment by Installment</h2>
+
+  <div class="form-group">
+    <label for="installmentDuration">Select Installment Duration:</label>
+    <select [(ngModel)]="selectedDuration" id="installmentDuration">
+      <option value="3">2 split</option>
+      <option value="4">3 split</option>
+      <option value="5">4 split</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="totalAmount">Total Outstanding Bill:</label>
+    <input type="text" [(ngModel)]="outstandingBill" id="totalAmount" disabled>
+  </div>
+
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" [(ngModel)]="name" id="name" disabled>
+  </div>
+
+  <div class="form-group">
+    <label for="mobile">Mobile:</label>
+    <input type="text" [(ngModel)]="mobile" id="mobile" disabled>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" [(ngModel)]="email" id="email" disabled>
+  </div>
+
+  <button [disabled]="!selectedDuration" (click)="calculateInstallment()">Get Splited Amount</button><br><br>
+
+  <div *ngIf="splitAmounts !== undefined">
+    <p>Installment Amount: {{ splitAmounts }}</p>
+  </div><br>
+
+  <button [disabled]="!splitAmounts" (click)="submitInstallment(customerId)">Pay Installment</button>
+</div>
+
+
+<!-- <div class="installment-container">
+  <h2>Payment by Installment</h2>
   
+  <div class="form-group">
+    <label for="installmentDuration">Select Installment Duration:</label>
+    <select [(ngModel)]="selectedDuration" id="installmentDuration">
+      <option value="3">2 split</option>
+      <option value="4">3 split</option>
+      <option value="5">4 split</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="installmentAmount">Total Amount:</label>
+    <input type="number" [(ngModel)]="totalAmount" id="installmentAmount" placeholder="Enter total amount">
+  </div>
+
+  <div class="form-group">
+    <label for="downPayment">Down Payment:</label>
+    <input type="number" [(ngModel)]="downPayment" id="downPayment" placeholder="Enter down payment amount">
+  </div>
+
+  <button (click)="calculateInstallment()">Get Splited Amount</button>
+
+  <div *ngIf="splitAmounts !== undefined">
+    <p>Installment Amount: {{ splitAmounts }}</p>
+  </div> -->
+
+  <!-- <div *ngIf="installmentDetails">
+    <h3>Installment Details:</h3>
+    <ul>
+      <li *ngFor="let installment of installmentDetails">{{ installment.date }} - {{ installment.amount }}</li>
+    </ul>
+  </div> -->
+
+  <!-- <button [disabled]="!splitAmounts" (click)="submitInstallment(customerId)">Pay Installment</button>
+</div> -->
+

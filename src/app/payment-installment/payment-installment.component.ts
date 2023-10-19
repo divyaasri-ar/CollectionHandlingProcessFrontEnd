@@ -15,6 +15,7 @@ export class PaymentInstallmentComponent implements OnInit {
   selectedDuration: number | undefined;
   splitAmounts: number | undefined;
   installment: Installment = {
+    customerId:0,
     name: '',
     mobile: '',
     email: '',
@@ -29,6 +30,7 @@ export class PaymentInstallmentComponent implements OnInit {
   name: any;
   mobile: any;
   email: any;
+  id: any;
 
   constructor(private route: ActivatedRoute, private billingService: BillingService, private customerService: CutomerService) { }
 
@@ -40,6 +42,7 @@ export class PaymentInstallmentComponent implements OnInit {
       this.customerService.getCustomerById(this.customerId).subscribe(
         (data: any) => {
           this.customerDetails = data;
+          this.id=this.customerDetails.id;
           this.outstandingBill = this.customerDetails.outbill;
           this.name=this.customerDetails.name;
           this.mobile=this.customerDetails.mobile;
@@ -79,6 +82,7 @@ export class PaymentInstallmentComponent implements OnInit {
   }
   submitInstallment(customer: pendcustomer): void {
     if (this.selectedDuration !== undefined && this.splitAmounts !== undefined) {
+      this.installment.customerId=this.customerDetails.id;
         this.installment.name = this.customerDetails.name;
         this.installment.mobile = this.customerDetails.mobile;
         this.installment.email = this.customerDetails.email;

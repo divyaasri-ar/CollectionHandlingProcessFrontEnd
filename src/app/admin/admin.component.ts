@@ -34,8 +34,9 @@ export class AdminComponent {
 
   logout() {
     this.billingService.logout().subscribe(() => {
-      // Redirect to the login page after successful logout
-      window.location.href = '/login'; // You can change the redirect URL as needed
+      console.log("logout successful");
+      window.history.replaceState({}, document.title, '/home');
+      window.location.href = '/home'; // You can change the redirect URL as needed
     });
   }
 

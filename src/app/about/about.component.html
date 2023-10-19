@@ -18,13 +18,18 @@
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/customerlogin"><span class="icn"><i class="fas fa-2x fa-user"></i></span> Customer Login</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item"> -->
 
-                        <a class="nav-link" routerLink="/home"><span class="icn"><i class="fas fa-2x fa-door-open"></i></span> Logout </a>
+                        <!-- <a class="nav-link" routerLink="/home"><span class="icn"><i class="fas fa-2x fa-door-open"></i></span> Logout </a> -->
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="logout()">
+                                <span class="icn"><i class="fas fa-2x fa-sign-out-alt"></i></span> Logout
+                            </a>
+                        </li>
 
                         <!-- <a class="nav-link" routerLink="/customerlogin"><span class="icn"><i class="fas fa-2x fa-door-open"></i></span> Logout </a> -->
 
-                    </li>
+                    <!-- </li> -->
                 </ul>
             </div>
         </nav>

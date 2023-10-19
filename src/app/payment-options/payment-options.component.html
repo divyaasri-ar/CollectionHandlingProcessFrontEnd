@@ -1,11 +1,83 @@
+<div class="container">
+    <div class="card pay-now" routerLink="/paymentportal">
+      <div class="card-icon">&#128176;</div>
+      <div class="card-title">Pay Now</div>
+      <div class="card-description">Make a quick payment now</div>
+    </div>
+  
+    <div class="card pay-by-installment" routerLink="/paymentinstallment">
+      <div class="card-icon">&#128179;</div>
+      <div class="card-title">Pay by Installment</div>
+      <div class="card-description">Split your payment into installments</div>
+    </div>
+  
+    <div class="card payment-issues" routerLink="/paymentissues">
+      <div class="card-icon">&#128222;</div>
+      <div class="card-title">Payment Issues</div>
+      <div class="card-description">Report payment-related issues</div>
+    </div>
+  
+    <div class="card help" routerLink="/supportcenter">
+      <div class="card-icon">&#128172;</div>
+      <div class="card-title">Need Help?</div>
+      <div class="card-description">Visit our support center</div>
+    </div>
+  </div>
+  
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+</head>
+
 <body>
+    <div class="container">
+        <h2>Select a Payment Option</h2>
+        <div class="options">
+            <a class="option-button" routerLink="/paymentportal">
+                <span>Pay Now</span>
+                <span class="option-description">Make a quick payment now</span>
+            </a>
+            <a class="option-button" routerLink="/paymentinstallment">
+                <span>Pay by Installment</span>
+                <span class="option-description">Split your payment into installments</span>
+            </a>
+            <button class="option-button" routerLink="/paymentissues">
+                <span>Payment Issues</span>
+                <span class="option-description">Report payment-related issues</span>
+            </button>
+            <a class="option-button external-link" href="https://help.example.com" target="_blank">
+                <span>Need Help?</span>
+                <span class="option-description">Visit our support center</span>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html> -->
+
+
+
+<!-- <body>
     <div class="container">
         <h2>Select an Option</h2>
         <div class="options">
             <a class="option-button" routerLink="/paymentportal">Pay Now</a>
             <a class="option-button" routerLink="/paymentinstallment">Pay by Installment</a>
             <button class="option-button" routerLink="/paymentissues">Payment Issues</button>
-            <!-- <button class="option-button" onclick="toggleIssueOptions()">Payment Issues</button> -->
+            
+        </div>
+    </div>
+    </body> -->
+
+
+    <!-- <button class="option-button" onclick="toggleIssueOptions()">Payment Issues</button> -->
             <!-- <div class="additional-options issue-option">
                 <select id="issue-type" class="text-input">
                     <option value="money-not-paid">Money Sent But Not Paid</option>
@@ -15,6 +87,3 @@
                 <textarea id="other-issue" class="text-input issue-option" placeholder="Enter other issue"></textarea>
                 <button class="raise-ticket-button" onclick="raiseTicket()">Raise Ticket</button>
             </div> -->
-        </div>
-    </div>
-    </body>

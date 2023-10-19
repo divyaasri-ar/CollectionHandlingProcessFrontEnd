@@ -1,78 +1,272 @@
+/* /* styles.css */
+
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .option-button {
+    display: block;
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .option-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .option-button span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .option-button.external-link {
+    background-color: #28a745;
+  }
+  
+  .option-button.external-link:hover {
+    background-color: #218838;
+  }
+   */
+
+   /* styles.css */
+
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .card {
+    width: 250px;
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-description {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .card.pay-now {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .card.pay-by-installment {
+    background-color: #2196f3;
+    color: #fff;
+  }
+  
+  .card.payment-issues {
+    background-color: #ff9800;
+    color: #fff;
+  }
+  
+  .card.help {
+    background-color: #f44336;
+    color: #fff;
+  }
+   */
+
+   /* styles.css */
+
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    background-color: #bc5252;
+  }
+  
+  .card-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-description {
+    font-size: 16px;
+    color: #555;
+  }
+  .card.pay-now {
+    background-color: #058b0a;
+    color: #fff;
+  }
+  
+  .card.pay-by-installment {
+    background-color: #065ea6;
+    color: #fff;
+  }
+  
+  .card.payment-issues {
+    background-color: #935a03;
+    color: #fff;
+  }
+  
+  .card.help {
+    background-color: #890d04;
+    color: #fff;
+  }
+   */
+
+   /* styles.css */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 230px;
-}
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 200px;
+    height: 250px;
+    margin: 20px;
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-}
-
-h2 {
-    color: #333;
-}
-
-.options {
-    margin-top: 30px;
-}
-
-.option-button {
-    display: block;
-    width: 100%;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Added background-color transition */
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    background-color: #f1f1f1; /* Brighter shade on hover */
+  }
+  
+  .card-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
     margin-bottom: 10px;
-    padding: 15px;
-    font-size: 18px;
-    background-color: #4caf50;
+  }
+  
+  .card-description {
+    font-size: 16px;
+    /* color: #555; */
+    color: #000;
+  }
+  
+  .card.pay-now {
+    background-color: #058b0a;
     color: #fff;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.option-button:hover {
-    background-color: #45a049;
-}
-
-.additional-options {
-    margin-top: 20px;
-}
-
-.issue-option {
-    display: none;
-}
-
-.issue-option.visible {
-    display: block;
-}
-
-.text-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.raise-ticket-button {
-    background-color: #007bff;
+  }
+  
+  .card.pay-by-installment {
+    background-color: #065ea6;
     color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 15px 30px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-.raise-ticket-button:hover {
-    background-color: #0056b3;
-}
+  }
+  
+  .card.payment-issues {
+    background-color: #935a03;
+    color: #fff;
+  }
+  
+  .card.help {
+    background-color: #890d04;
+    color: #fff;
+  }
+  

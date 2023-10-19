@@ -23,6 +23,7 @@ import { PaymentOptionsComponent } from './payment-options/payment-options.compo
 import { PaymentInstallmentComponent } from './payment-installment/payment-installment.component';
 import { PaymentIssuesComponent } from './payment-issues/payment-issues.component';
 import { CustomeroptionsLoginComponent } from './customeroptions-login/customeroptions-login.component';
+import { SupportCenterComponent } from './support-center/support-center.component';
 
 const routes: Routes = [
   {path:'',
@@ -119,6 +120,10 @@ const routes: Routes = [
   {
     path:'customeroptionslogin',
     component:CustomeroptionsLoginComponent
+  },
+  {
+    path:'supportcenter',
+    component:SupportCenterComponent
   }
 ];
 

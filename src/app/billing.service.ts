@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Installment } from 'src/Installment';
 import { OtpValidationRequest } from 'src/OtpValidationRequest';
+import { Ticket } from 'src/Ticket';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,14 @@ export class BillingService {
     // Make HTTP request to delete customer from pending database
     return this.http.post(`${this.dUrl}/delete/${customerId}`,customerId);
   }
+  deleteCustomerFromRaiseTicket(customerId: any): Observable<any> {
+    // Make HTTP request to delete customer from pending database
+    return this.http.post(`${this.dUrl}/ticketdelete/${customerId}`,customerId);
+  }
+  checkCustomerInTicketDatabase(customerId: number): Observable<any> {
+    const url = `${this.dUrl}/checkCustomer/${customerId}`; // Replace 'checkCustomer' with your actual endpoint
+    return this.http.get(url);
+  }
 
 
   private optUrl = 'http://localhost:8770'; 
@@ -81,6 +90,11 @@ export class BillingService {
     return this.http.post<Installment>(url, installment);
   }
 
+  saveTicket(ticket: Ticket): Observable<Ticket> {
+    const url = `${this.optUrl}/api/ticket`;
+    return this.http.post<Ticket>(url, ticket);
+  }
+
 
   private cUrl = 'http://localhost:8770'; 
   getCustomerData(): Observable<any> {
@@ -92,16 +106,23 @@ export class BillingService {
   private epiUrl = 'http://localhost:8770'; 
   
   sendEmailToPendingCustomer(customerId: number): Observable<any> {
-    return this.http.post(`${this.epiUrl}/email/${customerId}`, null);
+    return this.http.post(`${this.epiUrl}/pendingemail/${customerId}`, null);
   }
 
-  
+  sendEmailToPaymentCustomer(customerId: number): Observable<any> {
+    console.log(customerId);
+    return this.http.post(`${this.epiUrl}/api/customers/paymentemail/${customerId}`, null);
+  }
+
+  sendEmailToTicketCustomer(customerId: number): Observable<any> {
+    return this.http.post(`${this.epiUrl}/ticketemail/${customerId}`, null);
+  }
 
 
 
-
+  private lpiUrl = 'http://localhost:8770'; 
   logout() {
-    return this.http.post('/api/logout', {});
+    return this.http.post(`${this.lpiUrl}/api/logout`, {});
   }
 
 

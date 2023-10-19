@@ -38,39 +38,14 @@
     </button>
 
     <main id="content-box" class="order-first">
-        <!-- <div class="customer-list">
-            <h2>Customer List</h2>
-            <ul>
-              <li *ngFor="let customer of customersList">
-                {{ customer.id }} - {{ customer.email }}
-              </li>
-            </ul>
-          </div> -->
+      
           <div class="banner-section section bgcol" >
             <div class="container">
                
                 <div class="item">
                    
-                    
-<!-- 
-          <div *ngIf="customerDetails">
-            <h2>Customer Details</h2>
-            <p>ID: {{ customerDetails.id }}</p>
-            <p>Email: {{ customerDetails.email }}</p>
-          </div> -->
 
         <div class="payment-portal">
-           
-            
-            <!-- <h2>Payment Portal</h2>
-          
-            <div *ngIf="outstandingBill !== undefined">
-              <p>Outstanding Bill: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</p>
-            </div> -->
-
-            
-
-        <!-- <div class="banner-section section bgcol" > -->
             
             <div class="payment-container">
                 
@@ -84,7 +59,7 @@
 
                 
 
-        <form (ngSubmit)="processPayment()">
+        <form (ngSubmit)="processPayment(customerId)">
 
             <label for="payment-method">Payment Method:</label>
 
@@ -106,17 +81,15 @@
 
             <div *ngIf="selectedPaymentMethod === 'credit-card'" class="payment-details">
 
-                <form [formGroup]="paymentForm" (ngSubmit)="processPayment()">
+                <form [formGroup]="paymentForm" (ngSubmit)="processPayment(customerId)">
                 <div class="flex-container">
 
                     <div class="full-width">
                         <label for="cardNumber">Card Number:</label>
-      <input type="text" id="cardNumber" formControlName="cardNumber" required> 
-      <div *ngIf="paymentForm.get('cardNumber')!.value && paymentForm.get('cardNumber')!.hasError('pattern') && paymentForm.get('cardNumber')!.touched" style="color: red;">
-        Invalid card number. Please enter 16 digits.
-      </div>
-      <div *ngIf="paymentForm.get('cardNumber')!.invalid && paymentForm.get('cardNumber')!.touched && !paymentForm.get('cardNumber')!.hasError('pattern')" style="color: red;">
-        Card number is required.
+      <input type="text" id="cardNumber" formControlName="cardNumber" placeholder="1234567890123456" required> 
+     
+      <div *ngIf="paymentForm.get('cardNumber')?.invalid && paymentForm.get('cardNumber')?.touched" class="error-message" style="color: red;">
+        Invalid card number format.
       </div>
                           </div>
                     </div>
@@ -129,22 +102,24 @@
                         <label for="expiry">Expiration Date:</label>
                         <input type="text" id="expiry" formControlName="expiry" placeholder="MM/YY" required>
                         <span *ngIf="paymentForm.get('expiry')?.invalid && paymentForm.get('expiry')?.touched" class="error-message" style="color: red;">
-                            Invalid MM/YY format. Please enter a valid expiration date (MM/YY).
-                        </span>
+                          Invalid MM/YY format. Please enter a valid expiration date (MM/YY).
+                      </span>
                         
                     </div>
                                 <div class="half-width">
                                     <label for="ccv">CCV:</label>
-                                    <input type="text" id="ccv" formControlName="ccv" required>
+                                    <input type="text" id="ccv" formControlName="ccv" required placeholder="123">
+                                
                                     <span *ngIf="paymentForm.get('ccv')?.hasError('invalidCCV') && paymentForm.get('ccv')?.touched" class="error-message" style="color: red;">
                                       CCV number must be 3 digits long and numeric.
                                     </span>
                                   </div>
                                 </div>
+                                <button class="pay-button" [disabled]="!isFormValid" (click)="processPayment(customerId)">Make Payment: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</button>
+
                             </form>
 
-                <button class="pay-button"  (click)="processPayment()">Make Payment: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</button>
-
+                
             </div>
        
 
@@ -152,17 +127,14 @@
 
             <div *ngIf="selectedPaymentMethod === 'debit-card'" class="payment-details">
 
-                <form [formGroup]="paymentForm" [formGroup]="paymentForm">
+                <form [formGroup]="paymentForm">
                     <div class="flex-container">
     
                         <div class="full-width">
                             <label for="cardNumber">Card Number:</label>
-          <input type="text" id="cardNumber" formControlName="cardNumber">
-          <div *ngIf="paymentForm.get('cardNumber')!.value && paymentForm.get('cardNumber')!.hasError('pattern') && paymentForm.get('cardNumber')!.touched" style="color: red;">
-            Invalid card number. Please enter 16 digits.
-          </div>
-          <div *ngIf="paymentForm.get('cardNumber')!.invalid && paymentForm.get('cardNumber')!.touched && !paymentForm.get('cardNumber')!.hasError('pattern')" style="color: red;">
-            Card number is required.
+          <input type="text" id="cardNumber" formControlName="cardNumber" placeholder="1234567890123456">
+            <div *ngIf="paymentForm.get('cardNumber')?.invalid && paymentForm.get('cardNumber')?.touched" class="error-message" style="color: red;">
+            Invalid card number format.
           </div>
                               </div>
                         </div>
@@ -181,7 +153,7 @@
                         </div>
                                     <div class="half-width">
                                         <label for="ccv">CCV:</label>
-                                        <input type="text" id="ccv" formControlName="ccv">
+                                        <input type="text" id="ccv" formControlName="ccv" placeholder="123">
                                         <span *ngIf="paymentForm.get('ccv')?.hasError('invalidCCV') && paymentForm.get('ccv')?.touched" class="error-message" style="color: red;">
                                           CCV number must be 3 digits long and numeric.
                                         </span>
@@ -189,95 +161,108 @@
                                     </div>
                                 </form>
     
-                    <button class="pay-button"  (click)="processPayment()">Make Payment: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</button>
+                    <button class="pay-button" [disabled]="!isFormValid" (click)="processPayment(customerId)">Make Payment: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</button>
     
             </div>
 
  
             <div *ngIf="selectedPaymentMethod === 'account-transfer'" class="payment-details">
-                <form [formGroup]="paymentForm">
+              <form [formGroup]="accountForm">
                 <div class="flex-container">
                   <div class="full-width">
-                    <label for="account-number">Account Number:</label>
-                    <input type="text" id="account-number" formControlName="accountNumber">
-                    <div *ngIf="paymentForm.get('accountNumber')!.hasError('pattern') && paymentForm.get('accountNumber')!.touched" style="color: red;">
-                      Invalid account number. It should be 15 digits without any spaces and alphabets.
-                    </div>
-                    <div *ngIf="paymentForm.get('accountNumber')!.invalid && paymentForm.get('accountNumber')!.touched && !paymentForm.get('accountNumber')!.hasError('pattern')" style="color: red;">
+                    <label for="accountNumber">Account Number:</label>
+                    <input type="text" id="accountNumber" formControlName="accountNumber" placeholder="123456789012345">
+                    <div *ngIf="accountNumberControl?.hasError('required') && accountNumberControl?.touched" class="error-message" style="color: red;">
                       Account number is required.
                     </div>
+                    <div *ngIf="accountNumberControl?.hasError('pattern') && accountNumberControl?.touched" class="error-message" style="color: red;">
+                      Invalid account number. It should be 15 digits without any spaces and alphabets.
+                    </div>
                   </div>
                 </div>
               
                 <div class="flex-container">
                   <div class="full-width">
-                    <label for="account-name">Account Name:</label>
-                    <input type="text" id="account-name" formControlName="accountName">
-                    <div *ngIf="paymentForm.get('accountName')!.hasError('pattern') && paymentForm.get('accountName')!.touched" style="color: red;">
-                      Invalid account name. It should contain at least two alphabetical characters and spaces only.
-                    </div>
-                    <div *ngIf="paymentForm.get('accountName')!.invalid && paymentForm.get('accountName')!.touched && !paymentForm.get('accountName')!.hasError('pattern')" style="color: red;">
+                    <label for="accountName">Account Name:</label>
+                    <input type="text" id="accountName" formControlName="accountName" placeholder="abc">
+                    <div *ngIf="accountNameControl?.hasError('required') && accountNameControl?.touched" class="error-message" style="color: red;">
                       Account name is required.
                     </div>
+                    <div *ngIf="accountNameControl?.hasError('pattern') && accountNameControl?.touched" class="error-message" style="color: red;">
+                      Invalid account name. It should contain at least two alphabetical characters and spaces only.
+                    </div>
                   </div>
                 </div>
               
                 <div class="flex-container">
                   <div class="full-width">
-                    <label for="ifsc-code">IFSC Code:</label>
-                    <input type="text" id="ifsc-code" formControlName="ifscCode">
-                    <div *ngIf="paymentForm.get('ifscCode')!.hasError('pattern') && paymentForm.get('ifscCode')!.touched" style="color: red;">
-                      Invalid IFSC code. It should be 11 characters with the first four characters representing the bank name and the last seven characters numeric or alphabetic.
-                    </div>
-                    <div *ngIf="paymentForm.get('ifscCode')!.invalid && paymentForm.get('ifscCode')!.touched && !paymentForm.get('ifscCode')!.hasError('pattern')" style="color: red;">
+                    <label for="ifscCode">IFSC Code:</label>
+                    <input type="text" id="ifscCode" formControlName="ifscCode" placeholder="bank123456">
+                    <div *ngIf="ifscCodeControl?.hasError('required') && ifscCodeControl?.touched" class="error-message" style="color: red;">
                       IFSC code is required.
+                    </div>
+                    <div *ngIf="ifscCodeControl?.hasError('pattern') && ifscCodeControl?.touched" class="error-message" style="color: red;">
+                      Invalid IFSC code. It should be 11 characters with the first four characters representing the bank name and the last seven characters numeric or alphabetic.
                     </div>
                   </div>
                 </div>
               
-                <button class="pay-button" (click)="processPayment()">Make Payment: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</button>
-            </form>
-              </div>
-
+                <button class="pay-button" [disabled]="!isAccFormValid" (click)="processPayment(customerId)">Make Payment: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</button>
+              </form>
+            </div>
+            
  
 
            
 
             <div *ngIf="selectedPaymentMethod === 'upi'" class="payment-details">
+              <form [formGroup]="upiForm">
+                <div class="flex-container">
+                  <div class="full-width">
+                    <label for="upiId">UPI ID:</label>
+                    <input type="text" id="upiId" formControlName="upiId" placeholder="example@upi">
+                    
+                    <div *ngIf="upiForm.get('upiId')?.hasError('required') && upiForm.get('upiId')?.touched" style="color: red;">
+                      UPI ID is required.
+                    </div>
+                    
+                    <div *ngIf="upiForm.get('upiId')?.hasError('pattern') && upiForm.get('upiId')?.touched" style="color: red;">
+                      Invalid UPI ID format. Please enter a valid UPI ID (e.g., example@upi).
+                    </div>
+                  </div>
+                </div>
+                <button class="pay-button" [disabled]="!isUpiFormValid" (click)="processPayment(customerId)">Make Payment: {{ outstandingBill | currency:'INR':'symbol':'1.2-2' }}</button>
+              </form>
+          </div><br>
 
-                <label for="upi-id">UPI OPTIONS</label>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+
+
+
+                <!-- <label for="upi-id">UPI OPTIONS</label> -->
 
                 <!-- <input type="text" id="upi-id" name="upiId" [(ngModel)]="upiId" required> -->
 
-                <div class="payment-options">
+                <!-- <div class="payment-options"> -->
 
                     <!-- <label for="google-pay">Google Pay:</label> -->
 
-                    <input type="radio" id="google-pay" name="paymentOption" value="google-pay"> Google Pay<br>
+                    <!-- <input type="radio" id="google-pay" name="paymentOption" [(ngModel)]="upiId" (click)="setUpiId('google-pay')" value="google-pay"> Google Pay<br> -->
 
                     <!-- <label for="paytm">Paytm:</label> -->
 
-                    <input type="radio" id="paytm" name="paymentOption"  value="paytm"> Paytm <br>
+                    <!-- <input type="radio" id="paytm" name="paymentOption"  value="paytm"> Paytm <br> -->
 
-                </div><br>
-
-               
-
-                <button type="button" class="pay-button">Continue</button>
-
-            </div>
-
-        </form>
-        </div>
-
-        </div>
-        </div>
-    </div>
-
-           
-        </div>
-        </main>
-        </div>
+                    
     
 
         
